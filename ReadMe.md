@@ -1,26 +1,20 @@
-![alt tag](https://raw.github.com/dogfalo/materialize/master/images/materialize.gif)
-===========
+#Path Finding type A
+![Stage](https://img.shields.io/badge/Stage-Developing-red.svg)
+___________
+The Path Finding type A made on Unity 5 in C#.
 
-[![Gitter](https://www.facebook.com/)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-ONI, a Bussines game where you control a Bus Company and it's future.
+###Team:
+**[Mateus Amaral](https://github.com/gitmateusamaral), [Mauricio Leonardo](https://github.com/mauriciolfsilva), [Victor Fernandes](https://github.com/victorffernandes), [Nicole Alves](https://github.com/NicoleAlves) and [Daniel Cavalli](https://github.com/danielcavalli).**
 
+</br>
 ### Current Version :
-  - Master Branch: 0.1.1v
-  - Test Branch: 0.2v
+  - Master Branch: 0.2.2v
 
-## ESTIMATED Minimun Requirements:
-  - CPU: Core 2 Duo 
-  - Ram Memory: 2GB
-  - GPU: Nvidia 9800GT
-  - Size in HD: 3gb
+### Changelog
+- v0.1 (September 2016)
+  - Started the Map Editor and Creation System (MPS)
+  - We started the map generation and the system.
+- v0.2 (September 2016)
+  - The MPS was improved and we started to make the save system and  new tiles like the Lake.
+  - Creation of pathfinding logic and moving logic.
 
-## Changelog
-- v0.1 (July 2015)
-  - Started the Map Editor System (MPS)
-  - We started the map generation.
-- v0.1.6 (July 2015)
-  - The MPS was improved and we started to make the save system with it.
-  - Insert of objects and buildings is stuck now, we are waiting finish the map editor.
-- v 0.2 (August 2015)
-  - MPS is almost done we are just doing the interface to use it.
-  - The objects and buildings started to being inserted in the game.
