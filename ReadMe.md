@@ -10,7 +10,7 @@ The Path Finding type A made in Unity 5 with C#.
 ### Current Version :
   - Master Branch: 0.2.2v
 
-### Changelog
+### Changelog :
 - v0.1 (September 2016)
   - Started the Map Editor and Creation System (MPS)
   - We started the map generation and the system.
