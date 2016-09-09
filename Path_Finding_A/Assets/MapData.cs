@@ -15,7 +15,7 @@ public class MapData : MonoBehaviour
 	{
 		te = GameObject.Find ("GameManager");
 		code = te.GetComponent<TileSettings> ();
-		this.name = index.ToString() + nindex.ToString();
+		this.name = nindex.ToString() + index.ToString();
 		Type = te.GetComponent<TileSettings> ().grid_type[index,nindex];
 	}
 
@@ -40,20 +40,18 @@ public class MapData : MonoBehaviour
 			case "Start":
 				GetComponent<SpriteRenderer>().color = Color.blue;
 				Type = "Start";
-			FindObjectOfType<Pathfinding>().start = this.GetComponent<MapData>();
+				FindObjectOfType<Pathfinding>().start = this.GetComponent<MapData>();
 				break;
 			case "Finish":
 				GetComponent<SpriteRenderer>().color = Color.red;
 				Type = "Finish";
-			FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
+				FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
 				break;
 			case "Lagin":
 				GetComponent<SpriteRenderer>().color = Color.cyan;
 				Type = "Lagin";
-			FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
+				FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
 				break;
-
-
 		}
 	}
 }

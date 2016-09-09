@@ -17,8 +17,6 @@ public class TileSettings : MonoBehaviour
 	float[] grid_x;
 	float[] grid_y;
 	public string[,] grid_type;
-	public int coluna;
-	public int linha;
 	int map = 0;
 	//Other Variables
 	public GameObject Tile;
@@ -29,14 +27,15 @@ public class TileSettings : MonoBehaviour
 	public static bool canUseSave = false;
 	
 	// This creates the grid and set 'grid_type' to Null as default
-	void grid()
+	void grid(int c, int r)
 	{
-		grid_x = new float[linha];
-		grid_y = new float[coluna];
-		grid_type = new string[linha,coluna];
-		for(int i = 0;i < linha;i++)
+		Debug.Log("RUNNING PHASE 3");
+		grid_x = new float[r];
+		grid_y = new float[c];
+		grid_type = new string[r,c];
+		for(int i = 0;i < r;i++)
 		{
-			for (int n = 0;n < coluna;n++)
+			for(int n = 0;n < c;n++)
 			{
 				grid_x[i] = i*1.2f;
 				grid_y[n] = n*1.2f;
@@ -49,8 +48,9 @@ public class TileSettings : MonoBehaviour
 	}
 	//Reads the Setting .mps file and writes the values to each type of "tile" to the grid_type variable
 	//If the limit of the array was modified since the last run it will rewrite the .mps file
-	void SetGridType(string filename)
+	void SetGridType(string filename, int c, int r)
 	{
+		Debug.Log("RUNNING PHASE 3");
 		using (StreamReader file = new StreamReader(filename))
 		{
 			string line;
@@ -59,36 +59,41 @@ public class TileSettings : MonoBehaviour
 				linesCount.Add(line);
 			}
 		}
-		if(linesCount.Count != (linha*coluna))
+		if(linesCount.Count != (r*c))
 		{
 			using (StreamWriter file = new StreamWriter(filename))
 			{
-				for(var i = 0;i < linha;i++)
+				for(var i = 0;i < r;i++)
 				{
-					for (var n = 0;n < coluna;n++)
+					for (var n = 0;n < c;n++)
 					{
 						file.WriteLine("|" + grid_type[i,n]);
 					}
 				}
 				file.Close();
 			}
-			SetGridType("MapSettings.mps");
+			SetGridType("MapSettings.mps",c,r);
 		}
 	}
-	void Start()
+	public void runcode(int c, int r)
 	{
-		grid ();
-		SetGridType("MapSettings.mps");
-		Tile.GetComponent<MapData> ().index = 0;
-		Tile.GetComponent<MapData> ().nindex = 0;
-		for (int i = 0; i < linha; i++)
+		/*Generate the Grid*/
+		Debug.Log("RUNNING PHASE 2");
+		grid (c,r);
+		/*Load the Grid Configuration*/
+		SetGridType("MapSettings.mps",c,r);
+		Debug.Log("RUNNING PHASE 5");
+		Tile.GetComponent<MapData>().index = 0;
+		Tile.GetComponent<MapData>().nindex = 0;
+		for (int i = 0; i < r; i++)
 		{
 			Tile.GetComponent<MapData>().index = i;
-			for (int n = 0; n < coluna; n++)
+			for (int n = 0; n < c; n++)
 			{
 				grid_type[i,n] = linesCount[map].Split('|')[1];
 				map++;
 				Tile.GetComponent<MapData>().nindex = n;
+				/*Set the Tile Type after read the Configuration File*/
 				switch(grid_type[i,n])
 				{
 					case "Null":
