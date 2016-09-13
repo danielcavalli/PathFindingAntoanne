@@ -7,8 +7,8 @@ public class MapSettings : MonoBehaviour {
 	bool TileSet;
 	bool rwasdefined;
 	GameObject te;
-	int r;
-	int c;
+	public static int rows;
+	public static int columns;
 
 	void Start ()
 	{
@@ -26,18 +26,13 @@ public class MapSettings : MonoBehaviour {
 	{
 		if(rwasdefined && !TileSet) 
 		{
-			c= int.Parse(arg0);
-			Debug.Log("Number of Columns defined");
-			Debug.Log("RUNNING PHASE 1");
-			te.GetComponent<TileSettings> ().runcode(r,c);
-			te.GetComponent<SaveMapMPS>().runcode(r,c);
+			columns= int.Parse(arg0);
 			TileSet = true;
 			GameObject.Find("InputField").SetActive(false);
 		}
 		else
 		{
-			Debug.Log("Number of Rows defined");
-			r=int.Parse(arg0);
+			rows=int.Parse(arg0);
 			rwasdefined = true;
 		}
 	}

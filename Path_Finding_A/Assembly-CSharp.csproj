@@ -50,6 +50,7 @@
      <Compile Include="Assets\MapSettings.cs" />
      <Compile Include="Assets\MoveCamera.cs" />
      <Compile Include="Assets\Pathfinding.cs" />
+     <Compile Include="Assets\RedoneSettings.cs" />
      <Compile Include="Assets\SaveMapMPS.cs" />
      <Compile Include="Assets\TileSettings.cs" />
  <Reference Include="UnityEngine.UI">

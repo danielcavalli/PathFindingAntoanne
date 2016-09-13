@@ -11,12 +11,11 @@ using System.IO;
 public class SaveMapMPS : MonoBehaviour {
 	
 	string[,] grid_type; 
-	public int coluna;
-	public int linha;
+	public int coluna = 100;
+	public int linha = 100;
 	public GameObject ta;
 	string name;
 	int canSave;
-	bool runned = false;
 	void grid()
 	{
 		grid_type = new string[linha,coluna];
@@ -27,23 +26,24 @@ public class SaveMapMPS : MonoBehaviour {
 				name = i.ToString() + n.ToString();
 				ta = GameObject.Find(name);
 				grid_type[i,n] = ta.GetComponent<MapData>().Type;
+				Debug.Log (grid_type[i,n]);
 			}
 		}
 	}
-	public void runcode(int r, int c)
+	void Start()
 	{
-		coluna = c;
-		linha = r;
-		runned = true;
+		linha = MapSettings.rows;
+		coluna = MapSettings.columns;
 	}
+
 	void Update () 
 	{
-		if(TileSettings.canUseSave == true && runned)
+		if(TileSettings.canUseSave == true)
 		{
-				grid();
-				TileSettings.canUseSave = false;
+			grid();
+			TileSettings.canUseSave = false;
 		}
-		if(Input.GetKeyDown (KeyCode.F12) && canSave < 0  && runned)
+		if(Input.GetKeyDown (KeyCode.F12) && canSave < 0)
 		{
 			grid();
 			canSave = 150;

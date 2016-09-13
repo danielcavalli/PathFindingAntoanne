@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class Pathfinding : MonoBehaviour
 {
@@ -9,10 +11,13 @@ public class Pathfinding : MonoBehaviour
 
 	public void PathFinding(MapData actual)
 	{
+		List<MapData> minMapdList = new List<MapData>();
 		if (actual.name != dest.name) 
 		{
-			int MV = 100000;
 			MapData temp;
+			minMapdList.Add(actual);
+			int minVal = 100000;
+
 			for (int i = -1; i < 2; i ++) 
 			{
 				for (int n = -1; n < 2; n++) 
@@ -24,51 +29,75 @@ public class Pathfinding : MonoBehaviour
 						{
 							if (i == 0 || n == 0) 
 							{
-								if (TotalValue (temp, dest, 10) < MV)
-									MV = TotalValue (temp, dest, 10);
+								if (TotalValue (temp, dest, 10) <= minVal)
+								{
+									if(TotalValue (temp, dest, 10) < minVal)
+									{
+										minMapdList.Clear();
+										minVal = TotalValue (temp, dest, 10);
+									}
+
+									minMapdList.Add(temp);
+								}
 							} 
-							else 
+							else if (TotalValue (temp, dest, 14) <= minVal)
 							{
-								if (TotalValue (temp, dest, 14) < MV)
-									MV = TotalValue (temp, dest, 14);
+								if(TotalValue (temp, dest, 14) < minVal)
+								{
+									minMapdList.Clear();
+									minVal = TotalValue (temp, dest, 14);
+								}
+									
+									minMapdList.Add(temp);
 							}
+
 						}
 					}
 				}
 			}
 
-			for (int i = -1; i < 2; i ++)/*Da pra excluir*/
+			foreach(MapData m in minMapdList)
 			{
-				for (int n = -1; n < 2; n++) 
+				if(!(m.selected) && !(m.Type.Equals("Finish")))
 				{
-					temp = Find (actual, i, n);
-					if (i != 0 || n != 0) 
-					{	
-						if(!temp.selected)
-						{
-							if(!temp.Type.Equals("Finish"))
-							{
-								if (i == 0 || n == 0) 
-								{
-									if (TotalValue (temp, dest, 10) == MV)
-									{
-										temp.selected = true;
-										PathFinding (temp);
-									}
-								} 
-								else 
-								{
-									if (TotalValue (temp, dest, 14) == MV)
-									{
-										temp.selected = true;
-										PathFinding (temp);
-									}
-								}
-							}
-						}
-					}
+					m.selected = true;
+					PathFinding(m);
 				}
 			}
+
+			/*Da pra excluir
+			 * for (int i = -1; i < 2; i ++)Da pra excluir
+									{
+										for (int n = -1; n < 2; n++) 
+										{
+											temp = Find (actual, i, n);
+											if (i != 0 || n != 0) 
+											{	
+												if(!temp.selected)
+												{
+													if(!temp.Type.Equals("Finish"))
+													{
+														if (i == 0 || n == 0) 
+														{
+															if (TotalValue (temp, dest, 10) == MV)
+															{
+																temp.selected = true;
+																PathFinding (temp);
+															}
+														} 
+														else 
+														{
+															if (TotalValue (temp, dest, 14) == MV)
+															{
+																temp.selected = true;
+																PathFinding (temp);
+															}
+														}
+													}
+												}
+											}
+										}
+									}*/
 		}
 
 		//ReturnPathFinding (dest);
@@ -139,7 +168,7 @@ public class Pathfinding : MonoBehaviour
 		}
 	}
 
-	public int TotalValue (MapData Ot/*Tile de origem*/, MapData Tdest, int V)//eu n sei fazer conta
+	public int TotalValue (MapData Ot/*Tile de origem*/, MapData Tdest, int V)
 	{
 		if (Ot.Type.Equals ("Wall") || Ot == null) {
 			return 50000;
