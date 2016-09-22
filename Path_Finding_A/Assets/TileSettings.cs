@@ -72,11 +72,16 @@ public class TileSettings : MonoBehaviour
 			SetGridType("MapSettings.mps");
 		}
 	}
-	void Start()
+	public void runcode()
 	{
+		linha = 10;
+		coluna = 10;
+		if(linha==10)
+		{
+			linha = MapSettings.rows;
+			coluna = MapSettings.columns;
+		}
 		grid ();
-		linha = MapSettings.rows;
-		coluna = MapSettings.columns;
 		SetGridType("MapSettings.mps");
 		Tile.GetComponent<MapData> ().index = 0;
 		Tile.GetComponent<MapData> ().nindex = 0;

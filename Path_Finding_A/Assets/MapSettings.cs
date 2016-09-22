@@ -28,6 +28,7 @@ public class MapSettings : MonoBehaviour {
 		{
 			columns= int.Parse(arg0);
 			TileSet = true;
+			te.GetComponent<TileSettings>().runcode();
 			GameObject.Find("InputField").SetActive(false);
 		}
 		else
@@ -35,9 +36,5 @@ public class MapSettings : MonoBehaviour {
 			rows=int.Parse(arg0);
 			rwasdefined = true;
 		}
-	}
-
-	void Update () 
-	{
 	}
 }
