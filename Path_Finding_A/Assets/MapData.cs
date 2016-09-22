@@ -10,6 +10,7 @@ public class MapData : MonoBehaviour
 	public int nindex;
 	public bool selected = false;
 	public bool verified = false;
+	public bool falseWall = false;
 
 	void Start()
 	{
@@ -50,7 +51,6 @@ public class MapData : MonoBehaviour
 			case "Lagin":
 				GetComponent<SpriteRenderer>().color = Color.cyan;
 				Type = "Lagin";
-				FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
 				break;
 		}
 	}

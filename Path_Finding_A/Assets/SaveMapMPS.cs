@@ -11,8 +11,8 @@ using System.IO;
 public class SaveMapMPS : MonoBehaviour {
 	
 	string[,] grid_type; 
-	public int coluna = 100;
-	public int linha = 100;
+	public int coluna = 10;
+	public int linha = 10;
 	public GameObject ta;
 	string name;
 	int canSave;
