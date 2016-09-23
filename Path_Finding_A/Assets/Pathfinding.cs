@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
+// PathFinding A* 
 public class Pathfinding : MonoBehaviour
 {
 	public MapData dest;
