@@ -27,6 +27,7 @@ public class TileSettings : MonoBehaviour
 	public int nindex;
 	public int typo;
 	public static bool canUseSave = false;
+	bool yes = false;
 	
 	// This creates the grid and set 'grid_type' to Null as default
 	void grid()
@@ -58,6 +59,7 @@ public class TileSettings : MonoBehaviour
 		}
 		if(linesCount.Count != (linha*coluna))
 		{
+			if(yes)
 			using (StreamWriter file = new StreamWriter(filename))
 			{
 				for(var i = 0;i < linha;i++)
@@ -81,7 +83,8 @@ public class TileSettings : MonoBehaviour
 			linha = MapSettings.rows;
 			coluna = MapSettings.columns;
 		}
-		grid ();
+		Debug.Log("TileSettings: " + linha + " || " + coluna);
+		grid();
 		SetGridType("MapSettings.mps");
 		Tile.GetComponent<MapData> ().index = 0;
 		Tile.GetComponent<MapData> ().nindex = 0;

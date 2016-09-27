@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HudController.cs" />
      <Compile Include="Assets\MapData.cs" />
      <Compile Include="Assets\MapSettings.cs" />
      <Compile Include="Assets\MoveCamera.cs" />

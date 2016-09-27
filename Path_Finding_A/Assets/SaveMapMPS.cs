@@ -11,8 +11,8 @@ using System.IO;
 public class SaveMapMPS : MonoBehaviour {
 	
 	string[,] grid_type; 
-	public int coluna = 10;
-	public int linha = 10;
+	public int coluna;
+	public int linha;
 	public GameObject ta;
 	string name;
 	int canSave;
@@ -25,8 +25,8 @@ public class SaveMapMPS : MonoBehaviour {
 			{
 				name = i.ToString() + n.ToString();
 				ta = GameObject.Find(name);
-				grid_type[i,n] = ta.GetComponent<MapData>().Type;
-				Debug.Log (grid_type[i,n]);
+				grid_type[n,i] = ta.GetComponent<MapData>().Type;
+				Debug.Log (grid_type[n,i]);
 			}
 		}
 	}
@@ -35,29 +35,36 @@ public class SaveMapMPS : MonoBehaviour {
 		linha = MapSettings.rows;
 		coluna = MapSettings.columns;
 	}
-
+	public void saveit()
+	{
+		Debug.Log ("SaveMapF12: " + linha + " || " + coluna);
+		grid();
+		canSave = 150;
+		using (StreamWriter file = new StreamWriter("MapSettings.mps"))
+		{
+			for(var i = 0;i < linha;i++)
+			{
+				for (var n = 0;n < coluna;n++)
+				{
+					file.WriteLine("|" + grid_type[i,n]);
+				}
+			}
+			file.Close();
+		}
+	}
 	void Update () 
 	{
 		if(TileSettings.canUseSave == true)
 		{
+			linha = MapSettings.rows;
+			coluna = MapSettings.columns;
+			Debug.Log ("SaveMap: " + linha + " || " + coluna);
 			grid();
 			TileSettings.canUseSave = false;
 		}
 		if(Input.GetKeyDown (KeyCode.F12) && canSave < 0)
 		{
-			grid();
-			canSave = 150;
-			using (StreamWriter file = new StreamWriter("MapSettings.mps"))
-			{
-				for(var i = 0;i < linha;i++)
-				{
-					for (var n = 0;n < coluna;n++)
-					{
-						file.WriteLine("|" + grid_type[i,n]);
-					}
-				}
-				file.Close();
-			}
+			saveit ();
 		}
 		canSave--;
 	}

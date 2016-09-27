@@ -35,13 +35,13 @@ public class MoveCamera : MonoBehaviour {
 			transform.position += new Vector3(0,0,-speed);
 		}
 		if (Input.GetKeyDown (KeyCode.P)) {
-			FindObjectOfType<Pathfinding>().PathFinding(FindObjectOfType<Pathfinding>().start);
+			FindObjectOfType<Pathfinding>().Go();
 		}
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
 			type = "Null";
 		}
-		if (Input.GetKeyDown(KeyCode.F2))
+		if (Input.GetKeyDown(KeyCode.F3))
 		{
 			type = "Wall";
 		}

@@ -24,6 +24,8 @@ public class MapData : MonoBehaviour
 	{
 		if (selected)GetComponent<SpriteRenderer>().color = Color.yellow;
 		if (verified)GetComponent<SpriteRenderer>().color = Color.green;
+		if(!Type.Equals("Null"))this.tag = Type;
+		else this.tag = "Ground";
 	}
 	void OnMouseDown()
 	{
@@ -37,20 +39,22 @@ public class MapData : MonoBehaviour
 			case "Wall":
 				GetComponent<SpriteRenderer>().color = Color.grey;
 				Type = "Wall";
+				this.tag = "Wall";
 				break;
 			case "Start":
 				GetComponent<SpriteRenderer>().color = Color.blue;
 				Type = "Start";
-				FindObjectOfType<Pathfinding>().start = this.GetComponent<MapData>();
+				this.tag = "Start";
 				break;
 			case "Finish":
 				GetComponent<SpriteRenderer>().color = Color.red;
 				Type = "Finish";
-				FindObjectOfType<Pathfinding>().dest = this.GetComponent<MapData>();
+				this.tag = "Finish";
 				break;
 			case "Lagin":
 				GetComponent<SpriteRenderer>().color = Color.cyan;
 				Type = "Lagin";
+				this.tag = "Lagin";
 				break;
 		}
 	}

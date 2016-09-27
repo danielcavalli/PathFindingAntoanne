@@ -5,9 +5,16 @@ using System.Collections.Generic;
 // PathFinding A* 
 public class Pathfinding : MonoBehaviour
 {
-	public MapData dest;
-	public MapData start;
+	MapData dest;
+	MapData start;
 	bool ret = false;
+
+	public void Go()
+	{
+		start = GameObject.FindGameObjectWithTag ("Start").GetComponent<MapData>();
+		dest = GameObject.FindGameObjectWithTag("Finish").GetComponent<MapData>();
+		PathFinding (start);
+	}
 
 	void Update()
 	{
@@ -18,8 +25,10 @@ public class Pathfinding : MonoBehaviour
 		}
 	}
 
-	public void PathFinding(MapData actual)
+	void PathFinding(MapData actual)
 	{
+		actual.falseWall = true;
+		Debug.Log (actual.name); 
 		List<MapData> minMapdList = new List<MapData>();
 		MapData temp;
 		int minVal = 100000;
@@ -68,7 +77,7 @@ public class Pathfinding : MonoBehaviour
 
 		foreach(MapData m in minMapdList)
 		{
-			if(!(m.Type.Equals("Finish")))
+			if(!m.selected &&!(m.Type.Equals("Finish")))
 			{
 				m.selected = true;
 				tPassedTiles.Add(actual);
@@ -85,6 +94,7 @@ public class Pathfinding : MonoBehaviour
 
 	public void PathFinding(MapData actual, List<MapData> passedTiles)
 	{
+		Debug.Log (actual.name); 
 		List<MapData> minMapdList = new List<MapData>();
 		MapData temp;
 		List<MapData> tPassedTiles = passedTiles;
@@ -145,7 +155,7 @@ public class Pathfinding : MonoBehaviour
 		{
 			foreach(MapData m in minMapdList)
 			{
-				if(!(m.Type.Equals("Finish")))
+				if(!m.selected &&!(m.Type.Equals("Finish")))
 				{
 					m.selected = true;
 					tPassedTiles.Add(actual);

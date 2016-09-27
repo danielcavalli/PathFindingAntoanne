@@ -12,7 +12,6 @@ public class MapSettings : MonoBehaviour {
 
 	void Start ()
 	{
-
 		var input = gameObject.GetComponent<InputField>();
 		var se= new InputField.SubmitEvent();
 		se.AddListener(SubmitName);
@@ -24,16 +23,13 @@ public class MapSettings : MonoBehaviour {
 	
 	private void SubmitName(string arg0)
 	{
-		if(rwasdefined && !TileSet) 
-		{
-			columns= int.Parse(arg0);
+		if (rwasdefined && !TileSet) {
+			columns = int.Parse (arg0);
 			TileSet = true;
-			te.GetComponent<TileSettings>().runcode();
-			GameObject.Find("InputField").SetActive(false);
-		}
-		else
-		{
-			rows=int.Parse(arg0);
+			te.GetComponent<TileSettings> ().runcode ();
+			GameObject.Find ("InputField").SetActive (false);
+		} else {
+			rows = int.Parse (arg0);
 			rwasdefined = true;
 		}
 	}
