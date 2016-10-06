@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
+using System.IO;
 
 public class MapSettings : MonoBehaviour {
 
@@ -26,9 +33,17 @@ public class MapSettings : MonoBehaviour {
 		if (rwasdefined && !TileSet) {
 			columns = int.Parse (arg0);
 			TileSet = true;
-			te.GetComponent<TileSettings> ().runcode ();
+			te.GetComponent<TileSettings>().runcode();
+			using (StreamWriter file = new StreamWriter("MapS.mps"))
+			{
+				file.WriteLine("|" + rows);
+				file.WriteLine("|" + columns);
+				file.Close();
+			}
 			GameObject.Find ("InputField").SetActive (false);
-		} else {
+		} 
+		else 
+		{
 			rows = int.Parse (arg0);
 			rwasdefined = true;
 		}

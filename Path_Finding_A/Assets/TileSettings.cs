@@ -13,6 +13,7 @@ public class TileSettings : MonoBehaviour
 	//Lists
 	List<string> lines = new List<string>();
 	public List<string> linesCount = new List<string>();
+	public List<string> linesCount2 = new List<string>();
 	//Grid Variables
 	float[] grid_x;
 	float[] grid_y;
@@ -27,7 +28,7 @@ public class TileSettings : MonoBehaviour
 	public int nindex;
 	public int typo;
 	public static bool canUseSave = false;
-	bool yes = false;
+	public bool yes = false;
 	
 	// This creates the grid and set 'grid_type' to Null as default
 	void grid()
@@ -57,31 +58,29 @@ public class TileSettings : MonoBehaviour
 				linesCount.Add(line);
 			}
 		}
-		if(linesCount.Count != (linha*coluna))
-		{
-			if(yes)
-			using (StreamWriter file = new StreamWriter(filename))
-			{
-				for(var i = 0;i < linha;i++)
-				{
-					for (var n = 0;n < coluna;n++)
-					{
-						file.WriteLine("|" + grid_type[i,n]);
-					}
-				}
-				file.Close();
-			}
-			SetGridType("MapSettings.mps");
-		}
 	}
 	public void runcode()
 	{
 		linha = 10;
 		coluna = 10;
-		if(linha==10)
+		if (linha == 10 && !yes) 
 		{
 			linha = MapSettings.rows;
 			coluna = MapSettings.columns;
+			this.GetComponent<RedoneSettings>().runcode ();
+		}
+		else
+		{
+			using (StreamReader file = new StreamReader("MapS.mps"))
+			{
+				string line;
+				while ((line = file.ReadLine()) != null)
+				{
+					linesCount2.Add(line);
+				}
+			}
+			linha = int.Parse(linesCount2[0].Split('|')[1]);
+			coluna = int.Parse(linesCount2[1].Split('|')[1]);
 		}
 		Debug.Log("TileSettings: " + linha + " || " + coluna);
 		grid();

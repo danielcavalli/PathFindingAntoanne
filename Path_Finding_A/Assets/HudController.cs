@@ -6,6 +6,7 @@ public class HudController : MonoBehaviour {
 
 
 	GameObject[] HudObjs;
+	GameObject te;
 
 	void Start()
 	{
@@ -18,6 +19,7 @@ public class HudController : MonoBehaviour {
 		HudObjs [3].SetActive (false);
 		HudObjs [4] = GameObject.Find ("PanelYes2");
 		HudObjs [4].SetActive (false);
+		te = GameObject.Find ("GameManager");
 
 	}
 
@@ -49,6 +51,13 @@ public class HudController : MonoBehaviour {
 	public void sure()
 	{
 		HudObjs [0].SetActive(true);
+		HudObjs [3].SetActive(false);
+		HudObjs [4].SetActive(false);
+	}
+	public void sure2()
+	{
+		te.GetComponent<TileSettings>().yes = true;
+		te.GetComponent<TileSettings>().runcode();
 		HudObjs [3].SetActive(false);
 		HudObjs [4].SetActive(false);
 	}

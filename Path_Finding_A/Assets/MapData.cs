@@ -16,7 +16,7 @@ public class MapData : MonoBehaviour
 	{
 		te = GameObject.Find ("GameManager");
 		code = te.GetComponent<TileSettings> ();
-		this.name = nindex.ToString() + index.ToString();
+		this.name = index.ToString() +"|"+ nindex.ToString();
 		Type = te.GetComponent<TileSettings> ().grid_type[index,nindex];
 	}
 

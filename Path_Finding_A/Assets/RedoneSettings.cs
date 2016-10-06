@@ -43,8 +43,10 @@ public class RedoneSettings : MonoBehaviour
 			file.Close();
 		}
 	}
-	void Start()
+	public void runcode ()
 	{
+		linha = this.GetComponent<TileSettings> ().linha;
+		coluna = this.GetComponent<TileSettings> ().coluna;
 		grid ();
 		SetGridType("MapSettings.mps");
 	}

@@ -57,5 +57,13 @@ public class MoveCamera : MonoBehaviour {
 		{
 			type = "Lagin";
 		}
+		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && transform.position.y >= 25) 
+		{
+			transform.position += new Vector3(0,-speed,0);
+		}
+		if (Input.GetAxis ("Mouse ScrollWheel") < 0 && transform.position.y <= 125) 
+		{
+			transform.position += new Vector3(0,speed,0);
+		}
 	}
 }

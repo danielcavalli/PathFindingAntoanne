@@ -243,7 +243,7 @@ public class Pathfinding : MonoBehaviour
 		if (actual.index + i < 0 || actual.nindex + n < 0 || actual.index + i >= settings.GetComponent<TileSettings>().linha || actual.nindex + n >= settings.GetComponent<TileSettings>().coluna)
 			return null;
 		else
-			return GameObject.Find((actual.nindex + n).ToString() + (actual.index + i).ToString()).GetComponent<MapData>();
+			return GameObject.Find((actual.index + n).ToString() +"|"+ (actual.nindex + i).ToString()).GetComponent<MapData>();
 	}
 
 }

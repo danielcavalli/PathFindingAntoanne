@@ -23,20 +23,21 @@ public class SaveMapMPS : MonoBehaviour {
 		{
 			for (int n = 0;n < coluna;n++)
 			{
-				name = i.ToString() + n.ToString();
+				name = i.ToString() +"|"+ n.ToString();
 				ta = GameObject.Find(name);
-				grid_type[n,i] = ta.GetComponent<MapData>().Type;
-				Debug.Log (grid_type[n,i]);
+				grid_type[i,n] = ta.GetComponent<MapData>().Type;
 			}
 		}
 	}
 	void Start()
 	{
-		linha = MapSettings.rows;
-		coluna = MapSettings.columns;
+		linha = this.GetComponent<TileSettings> ().linha;
+		coluna = this.GetComponent<TileSettings> ().coluna;
 	}
 	public void saveit()
 	{
+		linha = this.GetComponent<TileSettings>().linha;
+		coluna = this.GetComponent<TileSettings>().coluna;
 		Debug.Log ("SaveMapF12: " + linha + " || " + coluna);
 		grid();
 		canSave = 150;
@@ -52,12 +53,12 @@ public class SaveMapMPS : MonoBehaviour {
 			file.Close();
 		}
 	}
-	void Update () 
+	void Update() 
 	{
 		if(TileSettings.canUseSave == true)
 		{
-			linha = MapSettings.rows;
-			coluna = MapSettings.columns;
+			linha = this.GetComponent<TileSettings>().linha;
+			coluna = this.GetComponent<TileSettings>().coluna;
 			Debug.Log ("SaveMap: " + linha + " || " + coluna);
 			grid();
 			TileSettings.canUseSave = false;
