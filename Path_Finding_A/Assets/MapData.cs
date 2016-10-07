@@ -36,6 +36,7 @@ public class MapData : MonoBehaviour
 		{
 			case "Null":
 				GetComponent<SpriteRenderer>().color = Color.white;
+				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("null 1");
 				Type = "Null";
 				break;
 			case "Wall":
@@ -60,5 +61,9 @@ public class MapData : MonoBehaviour
 				this.tag = "Lagin";
 				break;
 		}
+	}
+	public void ChangeSprite(string sprite)
+	{
+		GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(sprite);
 	}
 }

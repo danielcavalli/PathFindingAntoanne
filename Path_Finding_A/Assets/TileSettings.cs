@@ -29,6 +29,7 @@ public class TileSettings : MonoBehaviour
 	public int typo;
 	public static bool canUseSave = false;
 	public bool yes = false;
+	GameObject t;
 	
 	// This creates the grid and set 'grid_type' to Null as default
 	void grid()
@@ -103,16 +104,16 @@ public class TileSettings : MonoBehaviour
 						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Wall":
-						if(i > 0 &&grid_type[i-1,n] == "Wall")
+						if(i > 0 && grid_type[i-1,n] == "Wall")
 						{
 							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("2");
+							t = GameObject.Find((i-1).ToString() +"|"+ n.ToString());
+						Debug.Log((i-1).ToString() +"|"+ n.ToString());
+							if(t == null) Debug.Log ("null");
+							else Debug.Log("7");
+							//t.GetComponent<MapData>().ChangeSprite("2");
+							//t.transform.Rotate(90,90,0);
 							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
-						}
-						else if(i < linha && grid_type[i+1,n] == "Wall")
-						{
-							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("2");
-							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
-							Tile.transform.Rotate(90,90,0);
 						}
 						else
 						{

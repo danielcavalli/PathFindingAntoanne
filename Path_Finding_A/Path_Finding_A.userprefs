@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MapData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TileSettings.cs">
     <Files>
-      <File FileName="Assets\MapSettings.cs" Line="35" Column="19" />
-      <File FileName="Assets\MapData.cs" Line="44" Column="19" />
-      <File FileName="Assets\SaveMapMPS.cs" Line="26" Column="31" />
-      <File FileName="Assets\TileSettings.cs" Line="115" Column="39" />
-      <File FileName="Assets\HudController.cs" Line="52" Column="3" />
+      <File FileName="Assets\HudController.cs" Line="1" Column="1" />
+      <File FileName="Assets\MapSettings.cs" Line="1" Column="1" />
+      <File FileName="Assets\MapData.cs" Line="20" Column="55" />
+      <File FileName="Assets\SaveMapMPS.cs" Line="16" Column="20" />
+      <File FileName="Assets\TileSettings.cs" Line="105" Column="7" />
       <File FileName="Assets\MoveCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\RedoneSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets\Pathfinding.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
