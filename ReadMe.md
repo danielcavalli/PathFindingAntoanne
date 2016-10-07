@@ -17,24 +17,24 @@ A Path Finding A* algorithm made in Unity 5 with C#.
 - v0.2 (September 2016)
   - The MPS was improved and we started to make the save system and new tiles like the Lake.
   - Creation of pathfinding logic and moving logic.
- - v0.2.1 (September 2016)
+- v0.2.1 (September 2016)
   - The MPS and the save system were improved.
   - Improved pathfinding algorithm.
- - v0.2.2 (September 2016)
+- v0.2.2 (September 2016)
   - The MPS and the save system were improved.
- - v0.2.3 (September 2016)
+- v0.2.3 (September 2016)
   - The MPS and the save system were improved.
   - Started working in a HUD.
+- v0.2.4 (Ocotber 2016)
   /*This version isn't working
- - v0.2.4 (Ocotber 2016)
   - Found a Bug in the Load System, started fixing it.
   - Improving the HUD.
   This version isn't working*/
- - v0.2.5 (October 2016)
+- v0.2.5 (October 2016)
   - The Bug in the Load system were caused by another bug in the save system. Started working on it.
- - v0.2.6 (October 2016) 
+- v0.2.6 (October 2016) 
   - HUD Finalized.
- - v0.2.7 (October 2016) 
+- v0.2.7 (October 2016) 
   - Bugs in the MPS(Save and Load) solved.
   - HUD improved.
 
