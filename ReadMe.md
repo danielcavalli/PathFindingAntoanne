@@ -26,10 +26,9 @@ A Path Finding A* algorithm made in Unity 5 with C#.
   - The MPS and the save system were improved.
   - Started working in a HUD.
 - v0.2.4 (Ocotber 2016)
-  /*This version isn't working
   - Found a Bug in the Load System, started fixing it.
   - Improving the HUD.
-  This version isn't working*/
+  - This version isn't working
 - v0.2.5 (October 2016)
   - The Bug in the Load system were caused by another bug in the save system. Started working on it.
 - v0.2.6 (October 2016) 
