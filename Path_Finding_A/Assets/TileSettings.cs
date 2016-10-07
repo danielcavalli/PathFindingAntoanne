@@ -99,11 +99,27 @@ public class TileSettings : MonoBehaviour
 				{
 					case "Null":
 						Tile.GetComponent<SpriteRenderer>().color = Color.white;
+						Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("null 1");
 						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Wall":
-						Tile.GetComponent<SpriteRenderer>().color = Color.grey;
-						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
+						if(i > 0 &&grid_type[i-1,n] == "Wall")
+						{
+							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("2");
+							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
+						}
+						else if(i < linha && grid_type[i+1,n] == "Wall")
+						{
+							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("2");
+							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
+							Tile.transform.Rotate(90,90,0);
+						}
+						else
+						{
+							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
+							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
+						}
+						Tile.GetComponent<SpriteRenderer>().color = Color.white;
 						break;
 					case "Lagin":
 						Tile.GetComponent<SpriteRenderer>().color = Color.cyan;

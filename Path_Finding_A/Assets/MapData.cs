@@ -11,6 +11,7 @@ public class MapData : MonoBehaviour
 	public bool selected = false;
 	public bool verified = false;
 	public bool falseWall = false;
+	Sprite[] walls;
 
 	void Start()
 	{
@@ -18,6 +19,7 @@ public class MapData : MonoBehaviour
 		code = te.GetComponent<TileSettings> ();
 		this.name = index.ToString() +"|"+ nindex.ToString();
 		Type = te.GetComponent<TileSettings> ().grid_type[index,nindex];
+		walls = new Sprite[6];
 	}
 
 	void Update()
@@ -37,7 +39,8 @@ public class MapData : MonoBehaviour
 				Type = "Null";
 				break;
 			case "Wall":
-				GetComponent<SpriteRenderer>().color = Color.grey;
+				GetComponent<SpriteRenderer>().color = Color.white;
+				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
 				Type = "Wall";
 				this.tag = "Wall";
 				break;
