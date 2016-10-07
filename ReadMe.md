@@ -32,9 +32,9 @@ A Path Finding A* algorithm made in Unity 5 with C#.
   - This version isn't working
 - v0.3.2 (October 2016)
   - The Bug in the Load system were caused by another bug in the save system. Started working on it.
-- v0.4.1 (October 2016) 
+- v0.4 (October 2016) 
   - HUD Finalized.
-- v0.4.2 (October 2016) 
+- v0.4.1 (October 2016) 
   - Bugs in the MPS(Save and Load) solved.
   - HUD improved.
 
