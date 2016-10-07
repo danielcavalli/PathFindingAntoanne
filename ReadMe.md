@@ -5,7 +5,7 @@ ___________
 A Path Finding A* algorithm made in Unity 5 with C#.
 
 ###Team:
-**[Mateus Amaral](https://github.com/gitmateusamaral), [Mauricio Leonardo](https://github.com/mauriciolfsilva), [Victor Fernandes](https://github.com/victorffernandes), [Nicole Alves](https://github.com/NicoleAlves) and [Daniel Cavalli](https://github.com/danielcavalli).**
+** [Daniel Cavalli](https://github.com/danielcavalli), [Mateus Amaral](https://github.com/gitmateusamaral), [Mauricio Leonardo](https://github.com/mauriciolfsilva), [Nicole Alves](https://github.com/NicoleAlves) and [Victor Fernandes](https://github.com/victorffernandes).**
 
 ### Current Version :
   - Master Branch: 0.2.8v
