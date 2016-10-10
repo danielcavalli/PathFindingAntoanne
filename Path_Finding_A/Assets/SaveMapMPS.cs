@@ -66,6 +66,7 @@ public class SaveMapMPS : MonoBehaviour {
 		if(Input.GetKeyDown (KeyCode.F12) && canSave < 0)
 		{
 			saveit ();
+			GetComponent<DrawTest> ().runcode ();
 		}
 		canSave--;
 	}

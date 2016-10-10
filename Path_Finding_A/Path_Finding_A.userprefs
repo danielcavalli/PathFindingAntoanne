@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TileSettings.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DrawTest.cs">
     <Files>
+      <File FileName="Assets\DrawTest.cs" Line="115" Column="7" />
       <File FileName="Assets\HudController.cs" Line="1" Column="1" />
       <File FileName="Assets\MapSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets\MapData.cs" Line="20" Column="55" />
-      <File FileName="Assets\SaveMapMPS.cs" Line="16" Column="20" />
-      <File FileName="Assets\TileSettings.cs" Line="105" Column="7" />
-      <File FileName="Assets\MoveCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\MapData.cs" Line="49" Column="5" />
+      <File FileName="Assets\SaveMapMPS.cs" Line="1" Column="1" />
+      <File FileName="Assets\TileSettings.cs" Line="90" Column="14" />
+      <File FileName="Assets\MoveCamera.cs" Line="71" Column="61" />
       <File FileName="Assets\RedoneSettings.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

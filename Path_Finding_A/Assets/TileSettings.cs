@@ -29,7 +29,9 @@ public class TileSettings : MonoBehaviour
 	public int typo;
 	public static bool canUseSave = false;
 	public bool yes = false;
-	GameObject t;
+	GameObject[] t;
+	public static int l;
+	public static int c;
 	
 	// This creates the grid and set 'grid_type' to Null as default
 	void grid()
@@ -62,6 +64,7 @@ public class TileSettings : MonoBehaviour
 	}
 	public void runcode()
 	{
+		t = new GameObject[9];
 		linha = 10;
 		coluna = 10;
 		if (linha == 10 && !yes) 
@@ -83,7 +86,8 @@ public class TileSettings : MonoBehaviour
 			linha = int.Parse(linesCount2[0].Split('|')[1]);
 			coluna = int.Parse(linesCount2[1].Split('|')[1]);
 		}
-		Debug.Log("TileSettings: " + linha + " || " + coluna);
+		l = linha;
+		c = coluna;
 		grid();
 		SetGridType("MapSettings.mps");
 		Tile.GetComponent<MapData> ().index = 0;
@@ -104,23 +108,9 @@ public class TileSettings : MonoBehaviour
 						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Wall":
-						if(i > 0 && grid_type[i-1,n] == "Wall")
-						{
-							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("2");
-							t = GameObject.Find((i-1).ToString() +"|"+ n.ToString());
-						Debug.Log((i-1).ToString() +"|"+ n.ToString());
-							if(t == null) Debug.Log ("null");
-							else Debug.Log("7");
-							//t.GetComponent<MapData>().ChangeSprite("2");
-							//t.transform.Rotate(90,90,0);
-							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
-						}
-						else
-						{
-							Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
-							Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
-						}
+						Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
 						Tile.GetComponent<SpriteRenderer>().color = Color.white;
+						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Lagin":
 						Tile.GetComponent<SpriteRenderer>().color = Color.cyan;
@@ -138,5 +128,33 @@ public class TileSettings : MonoBehaviour
 			}
 		}
 		canUseSave = true;
+		//GetComponent<DrawTest> ().runcode ();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

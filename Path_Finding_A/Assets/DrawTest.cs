@@ -22,13 +22,10 @@ public class DrawTest : MonoBehaviour
 	public int linha;
 	int map = 0;
 	//Other Variables
-	public GameObject Tile;
-	public GameObject Tile2;
-	public int index;
-	public int nindex;
-	public int typo;
-	public static bool canUseSave = false;
-	public bool yes = false;
+	public GameObject[,] Tile_Control;
+	public string[,] tile_type;
+	public MapData[,] Tile;
+	public static int control;
 	
 	void grid()
 	{
@@ -45,52 +42,82 @@ public class DrawTest : MonoBehaviour
 			}
 		}
 	}
-	void SetGridType(string filename)
+	void Start()
 	{
-		using (StreamReader file = new StreamReader(filename))
-		{
-			string line;
-			while ((line = file.ReadLine()) != null)
-			{
-				linesCount.Add(line);
-			}
-		}
+		control = 0;
 	}
-	
 	public void runcode() 
 	{
-		linha=10;
-		coluna=10;
-		if (linha==10 && !yes) 
+		linha= GetComponent<TileSettings>().linha;
+		coluna=GetComponent<TileSettings>().coluna;
+		Tile_Control = new GameObject[linha,coluna];
+		Tile = new MapData[linha,coluna];
+		tile_type = new string[linha,coluna];
+		for (int i = 0; i < linha;i++)
 		{
-			linha=MapSettings.rows;
-			coluna=MapSettings.columns;
-		}
-		else
-		{
-			using (StreamReader file = new StreamReader("MapS.mps"))
+			for (int n = 0; n < coluna;n++)
 			{
-				string line;
-				while ((line = file.ReadLine()) != null)
+				Tile_Control[i,n] = GameObject.Find((i.ToString() +"|"+ n.ToString()));
+				Tile[i,n] = Tile_Control[i,n].GetComponent<MapData>();
+				tile_type[i,n] = Tile[i,n].Type;
+			}
+		}
+		Debug.Log (tile_type [1, 2]);
+		for (int i = 0; i < linha;i++)
+		{
+			for (int n = 0; n < coluna;n++)
+			{
+				if(i > 0)
 				{
-					linesCount2.Add(line);
+					if(tile_type[i-1,n].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("2");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
+					}
+				}
+				if(i > 0 && i < linha-1)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("2");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
+					}
+					if(tile_type[i-1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i+1,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("7");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
+					}
+				}
+				if(i == 0)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("2");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
+					}
+				}
+				if(n < coluna-1)
+				{
+					if(tile_type[i,n+1].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("3");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
+					}
+				}
+				if(i>0 && i < linha-1 && n > 0)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("4");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
+					}
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall") && tile_type[i-1,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("5");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
+					}
 				}
 			}
-			linha=int.Parse(linesCount2[0].Split('|')[1]);
-			coluna=int.Parse(linesCount2[1].Split('|')[1]);
 		}
-		grid();
-		SetGridType("MapSettings.mps");
-		Tile.GetComponent<MapData>().index=0;
-		Tile.GetComponent<MapData>().nindex=0;
-		for (int i=0;i<linha;i++) 
-		{
-			for(int n=0;n<coluna;n++) 
-			{
-				grid_type[i,n]=linesCount[map].Split('|')[1];
-				map++;
-			}
-		}
-
 	}
 }

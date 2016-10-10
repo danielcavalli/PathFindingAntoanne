@@ -29,6 +29,10 @@ public class MapData : MonoBehaviour
 		if(!Type.Equals("Null"))this.tag = Type;
 		else this.tag = "Ground";
 	}
+	void OnEnable()
+	{
+		DrawTest.control += 1;
+	}
 	void OnMouseDown()
 	{
 		Type = MoveCamera.type;
@@ -42,6 +46,7 @@ public class MapData : MonoBehaviour
 			case "Wall":
 				GetComponent<SpriteRenderer>().color = Color.white;
 				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
+				te.GetComponent<DrawTest>().runcode();
 				Type = "Wall";
 				this.tag = "Wall";
 				break;

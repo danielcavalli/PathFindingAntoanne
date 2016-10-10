@@ -4,7 +4,12 @@
 |Null
 |Null
 |Null
+|Wall
+|Wall
 |Null
+|Null
+|Null
+|Wall
 |Wall
 |Null
 |Null
@@ -15,11 +20,6 @@
 |Null
 |Null
 |Null
-|Null
-|Null
-|Null
-|Null
-|Null
-|Null
+|Wall
 |Null
 |Null

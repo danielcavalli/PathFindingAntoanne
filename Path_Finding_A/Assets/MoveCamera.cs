@@ -6,9 +6,10 @@ public class MoveCamera : MonoBehaviour {
 
 	public int speed = 1;
 	public static string type;
+	bool run;
 	void Start () 
 	{
-	
+		run = false;
 	}
 	
 
@@ -64,6 +65,15 @@ public class MoveCamera : MonoBehaviour {
 		if (Input.GetAxis ("Mouse ScrollWheel") < 0 && transform.position.y <= 125) 
 		{
 			transform.position += new Vector3(0,speed,0);
+		}
+		if (!run) 
+		{
+			if (DrawTest.control >= (TileSettings.l * TileSettings.c))
+			{
+				GameObject.Find ("GameManager").GetComponent<DrawTest> ().runcode ();
+				Debug.Log (DrawTest.control);
+				run = true;
+			}
 		}
 	}
 }
