@@ -37,4 +37,10 @@ A Path Finding A* algorithm made in Unity 5 with C#.
 - v0.4.1 (October 2016) 
   - Bugs in the MPS(Save and Load) solved.
   - HUD improved.
+- v0.4.2 (October 2016) 
+  - Wall placement Function
+    - Corner Right OK
+    - Horizontal Line OK
+    - Vertical Line WIP
+    - Three Lane Corner OK
 
