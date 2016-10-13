@@ -41,6 +41,7 @@ public class MapData : MonoBehaviour
 			case "Null":
 				GetComponent<SpriteRenderer>().color = Color.white;
 				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("null 1");
+				te.GetComponent<DrawTest>().runcode();
 				Type = "Null";
 				break;
 			case "Wall":

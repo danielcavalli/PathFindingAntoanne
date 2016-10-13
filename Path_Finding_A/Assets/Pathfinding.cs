@@ -44,7 +44,7 @@ public class Pathfinding : MonoBehaviour
 					temp = Find (actual, i, n);
 					if(temp != null)
 					{
-						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall"))
+						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall")&& !temp.Type.Equals("Lagin"))
 						{
 							if (i == 0 || n == 0) 
 							{
@@ -111,7 +111,7 @@ public class Pathfinding : MonoBehaviour
 					temp = Find (actual, i, n);
 					if(temp != null)
 					{
-						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall"))
+						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall") && !temp.Type.Equals("Lagin"))
 						{
 							if (i == 0 || n == 0) 
 							{
@@ -243,7 +243,7 @@ public class Pathfinding : MonoBehaviour
 		if (actual.index + i < 0 || actual.nindex + n < 0 || actual.index + i >= settings.GetComponent<TileSettings>().linha || actual.nindex + n >= settings.GetComponent<TileSettings>().coluna)
 			return null;
 		else
-			return GameObject.Find((actual.index + n).ToString() +"|"+ (actual.nindex + i).ToString()).GetComponent<MapData>();
+			return GameObject.Find((actual.index + i).ToString() +"|"+ (actual.nindex + n).ToString()).GetComponent<MapData>();
 	}
 
 }

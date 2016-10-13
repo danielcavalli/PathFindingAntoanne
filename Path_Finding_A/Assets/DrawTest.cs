@@ -96,25 +96,102 @@ public class DrawTest : MonoBehaviour
 						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
 					}
 				}
-				if(n < coluna-1)
+				if(n < coluna-1 && n != 0)
 				{
 					if(tile_type[i,n+1].Equals("Wall") && tile_type[i,n].Equals("Wall"))
 					{
 						Tile[i,n].ChangeSprite("3");
 						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
 					}
+					if(tile_type[i,n-1].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("3");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0f,0));
+					}
+					if(tile_type[i,n+1].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("7");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,90f,0));
+					}
 				}
-				if(i>0 && i < linha-1 && n > 0)
+				if(n == 0)
+				{
+					if(tile_type[i,n+1].Equals("Wall") && tile_type[i,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("7");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,90f,0));
+					}
+				}
+				if(n < coluna-1 && i < linha-1)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("4");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,270f,0));
+					}
+				}
+				if(n > 0 && i < linha-1)
 				{
 					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
 					{
 						Tile[i,n].ChangeSprite("4");
 						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
 					}
+				}
+				if(n < coluna-1 && i > 0)
+				{
+					if(tile_type[i-1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("4");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,180f,0));
+					}
+				}
+				if(n < 0 && i < linha-1)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("4");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,270f,0));
+					}
+				}
+				if(n > 0 && i > 0)
+				{
+					if(tile_type[i-1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("4");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,90f,0));
+					}
+				}
+				if(i>0 && i < linha-1 && n > 0)
+				{
 					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n-1].Equals("Wall") && tile_type[i-1,n].Equals("Wall"))
 					{
 						Tile[i,n].ChangeSprite("5");
 						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0,0));
+					}
+				}
+				if(i>0 && i < linha-1 && n < coluna-1)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall") && tile_type[i-1,n].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("5");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,0f,0));
+					}
+				}
+				if(n>0 && i < linha-1 && n < coluna-1)
+				{
+					if(tile_type[i+1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("5");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,270f,0));
+					}
+				}
+				if(n>0 && i > 0 && n < coluna-1)
+				{
+					if(tile_type[i-1,n].Equals("Wall") && tile_type[i,n].Equals("Wall") && tile_type[i,n+1].Equals("Wall") && tile_type[i,n-1].Equals("Wall"))
+					{
+						Tile[i,n].ChangeSprite("5");
+						Tile_Control[i,n].transform.rotation = Quaternion.Euler (new Vector3(90f,90f,0));
 					}
 				}
 			}
