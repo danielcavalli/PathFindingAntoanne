@@ -62,7 +62,7 @@ public class DrawTest : MonoBehaviour
 				tile_type[i,n] = Tile[i,n].Type;
 			}
 		}
-		Debug.Log (tile_type [1, 2]);
+		//Debug.Log (tile_type [1, 2]);
 		for (int i = 0; i < linha;i++)
 		{
 			for (int n = 0; n < coluna;n++)

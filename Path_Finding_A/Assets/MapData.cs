@@ -20,11 +20,13 @@ public class MapData : MonoBehaviour
 		this.name = index.ToString() +"|"+ nindex.ToString();
 		Type = te.GetComponent<TileSettings> ().grid_type[index,nindex];
 		walls = new Sprite[6];
+		if(Type.Equals("Start")) 
+		   selected = true;
 	}
 
 	void Update()
 	{
-		if (selected)GetComponent<SpriteRenderer>().color = Color.yellow;
+		if (selected && !Type.Equals("Start"))GetComponent<SpriteRenderer>().color = Color.yellow;
 		if (verified)GetComponent<SpriteRenderer>().color = Color.green;
 		if(!Type.Equals("Null"))this.tag = Type;
 		else this.tag = "Ground";
@@ -54,6 +56,7 @@ public class MapData : MonoBehaviour
 			case "Start":
 				GetComponent<SpriteRenderer>().color = Color.blue;
 				Type = "Start";
+				selected = true;
 				this.tag = "Start";
 				break;
 			case "Finish":
