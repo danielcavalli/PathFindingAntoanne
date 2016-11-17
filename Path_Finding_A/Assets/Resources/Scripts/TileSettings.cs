@@ -104,16 +104,12 @@ public class TileSettings : MonoBehaviour
 				{
 					case "Null":
 						Tile.GetComponent<SpriteRenderer>().color = Color.white;
-						Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("null 1");
+					Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/null 1");
 						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Wall":
-						Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
+					Tile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/1");
 						Tile.GetComponent<SpriteRenderer>().color = Color.white;
-						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
-						break;
-					case "Lagin":
-						Tile.GetComponent<SpriteRenderer>().color = Color.cyan;
 						Instantiate(Tile, new Vector3((float)grid_x[i], 0, (float)grid_y[n]), Tile.transform.rotation);
 						break;
 					case "Start":

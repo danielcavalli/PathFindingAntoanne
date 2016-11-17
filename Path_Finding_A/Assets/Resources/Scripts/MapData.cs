@@ -42,13 +42,13 @@ public class MapData : MonoBehaviour
 		{
 			case "Null":
 				GetComponent<SpriteRenderer>().color = Color.white;
-				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("null 1");
+				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/null 1");
 				te.GetComponent<DrawTest>().runcode();
 				Type = "Null";
 				break;
 			case "Wall":
 				GetComponent<SpriteRenderer>().color = Color.white;
-				GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("1");
+			GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/1");
 				te.GetComponent<DrawTest>().runcode();
 				Type = "Wall";
 				this.tag = "Wall";
@@ -64,15 +64,10 @@ public class MapData : MonoBehaviour
 				Type = "Finish";
 				this.tag = "Finish";
 				break;
-			case "Lagin":
-				GetComponent<SpriteRenderer>().color = Color.cyan;
-				Type = "Lagin";
-				this.tag = "Lagin";
-				break;
 		}
 	}
 	public void ChangeSprite(string sprite)
 	{
-		GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(sprite);
+		GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/"+sprite);
 	}
 }

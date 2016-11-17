@@ -46,15 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DrawTest.cs" />
-     <Compile Include="Assets\HudController.cs" />
-     <Compile Include="Assets\MapData.cs" />
-     <Compile Include="Assets\MapSettings.cs" />
-     <Compile Include="Assets\MoveCamera.cs" />
-     <Compile Include="Assets\Pathfinding.cs" />
-     <Compile Include="Assets\RedoneSettings.cs" />
-     <Compile Include="Assets\SaveMapMPS.cs" />
-     <Compile Include="Assets\TileSettings.cs" />
+     <Compile Include="Assets\Resources\Scripts\DrawTest.cs" />
+     <Compile Include="Assets\Resources\Scripts\HudController.cs" />
+     <Compile Include="Assets\Resources\Scripts\MapData.cs" />
+     <Compile Include="Assets\Resources\Scripts\MapSettings.cs" />
+     <Compile Include="Assets\Resources\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Resources\Scripts\Pathfinding.cs" />
+     <Compile Include="Assets\Resources\Scripts\RedoneSettings.cs" />
+     <Compile Include="Assets\Resources\Scripts\SaveMapMPS.cs" />
+     <Compile Include="Assets\Resources\Scripts\TileSettings.cs" />
+     <Compile Include="Assets\Resources\Scripts\Walk.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

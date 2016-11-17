@@ -8,6 +8,7 @@ public class Pathfinding : MonoBehaviour
 	MapData dest;
 	MapData start;
 	bool ret = false;
+	public GameObject player;
 
 	public void Go()
 	{
@@ -44,7 +45,7 @@ public class Pathfinding : MonoBehaviour
 					temp = Find (actual, i, n);
 					if(temp != null)
 					{
-						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall")&& !temp.Type.Equals("Lagin"))
+						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall"))
 						{
 							if (TotalValue (temp, dest) <= minVal)
 							{
@@ -96,7 +97,7 @@ public class Pathfinding : MonoBehaviour
 					temp = Find (actual, i, n);
 					if(temp != null)
 					{
-						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall") && !temp.Type.Equals("Lagin"))
+						if(!temp.selected && !temp.falseWall && !temp.Type.Equals("Wall"))
 						{
 							if (TotalValue (temp, dest) <= minVal)
 							{
@@ -182,6 +183,13 @@ public class Pathfinding : MonoBehaviour
 					m.selected = false;
 					ReturnPathFinding(m);
 				}
+				else
+				{
+					player.transform.position = new Vector3(GameObject.Find(m.index + "|" + m.nindex).transform.position.x,
+					                                        1,
+					                                        GameObject.Find(m.index + "|" + m.nindex).transform.position.z);
+					Instantiate(player);
+				}
 			}
 		}
 	}
@@ -191,7 +199,6 @@ public class Pathfinding : MonoBehaviour
 		int V = 10;
 
 		if (Ot.index != 0 && Ot.nindex != 0) V += 4;
-		if (Ot.Type.Equals ("Lagin")) V += 40;
 
 		return(V + 10*(Mathf.Abs(Tdest.index - Ot.index) + Mathf.Abs(Tdest.nindex - Ot.nindex)));
 	}

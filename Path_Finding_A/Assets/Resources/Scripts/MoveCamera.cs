@@ -54,10 +54,6 @@ public class MoveCamera : MonoBehaviour {
 		{
 			type = "Finish";
 		}
-		if (Input.GetKeyDown(KeyCode.F4))
-		{
-			type = "Lagin";
-		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && transform.position.y >= 25) 
 		{
 			transform.position += new Vector3(0,-speed,0);
